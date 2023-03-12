@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 using SoccerJerseyPass.Data;
 
 namespace SoccerJerseyPass
@@ -10,10 +11,18 @@ namespace SoccerJerseyPass
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+            builder.Services.AddMvc();
 
             // Add DbContext Configuration
 
-            builder.Services.AddDbContext<AppDbContext>();
+            IConfiguration configuration = new ConfigurationBuilder()
+           .AddJsonFile("appsettings.json")
+           .AddEnvironmentVariables().Build();
+
+            builder.Services.AddDbContext<AppDbContext>(optionsAction =>
+            {
+                optionsAction.UseSqlServer(configuration.GetConnectionString(name: "DefaultConnection"));
+            });
 
             var app = builder.Build();
 
