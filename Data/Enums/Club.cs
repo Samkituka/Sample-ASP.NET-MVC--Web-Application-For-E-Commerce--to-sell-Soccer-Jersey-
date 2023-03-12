@@ -5,9 +5,8 @@
         PSG = 1,
         Real_Madrid,
         Barcelona,
-        Chelsea,
+        Liverpool,
         Bayern,
-        Dortmund,
         Milan
 
     }
