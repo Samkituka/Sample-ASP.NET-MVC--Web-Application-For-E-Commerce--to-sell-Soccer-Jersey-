@@ -1,4 +1,4 @@
-﻿namespace SoccerJerseyPass.Data
+﻿namespace SoccerJerseyPass.Data.Enums
 {
     public enum Club
     {
@@ -9,6 +9,6 @@
         Bayern,
         Dortmund,
         Milan
-        
+
     }
 }

@@ -1,3 +1,5 @@
+using SoccerJerseyPass.Data;
+
 namespace SoccerJerseyPass
 {
     public class Program
@@ -8,6 +10,10 @@ namespace SoccerJerseyPass
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+
+            // Add DbContext Configuration
+
+            builder.Services.AddDbContext<AppDbContext>();
 
             var app = builder.Build();
 

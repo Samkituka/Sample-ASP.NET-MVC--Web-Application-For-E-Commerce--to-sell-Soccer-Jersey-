@@ -15,5 +15,10 @@ namespace SoccerJerseyPass.Models
 
         public string Description { get; set; }
 
+        // Relationships
+        
+        public List<Soccer_Jersey> soccer_Jerseys { get; set; }
+
+
     }
 }
