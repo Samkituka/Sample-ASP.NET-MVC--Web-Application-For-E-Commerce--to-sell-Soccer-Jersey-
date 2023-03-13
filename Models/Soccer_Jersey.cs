@@ -35,7 +35,7 @@ namespace SoccerJerseyPass.Models
 
         [ForeignKey("LeagueId")]
 
-        public List <League> leagues { get; set; }
+        public League League { get; set; }
 
         // Coach
 
@@ -43,6 +43,6 @@ namespace SoccerJerseyPass.Models
 
         [ForeignKey("CoachId")]
 
-        public List<Coach> coaches { get; set; }
+        public Coach Coach { get; set; }
     }
 }

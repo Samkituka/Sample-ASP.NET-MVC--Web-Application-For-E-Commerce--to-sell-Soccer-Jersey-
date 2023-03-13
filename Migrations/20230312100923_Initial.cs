@@ -74,52 +74,16 @@ namespace SoccerJerseyPass.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Soccer_Jerseys", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "CoachSoccer_Jersey",
-                columns: table => new
-                {
-                    CoachId = table.Column<int>(type: "int", nullable: false),
-                    coachesId = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_CoachSoccer_Jersey", x => new { x.CoachId, x.coachesId });
                     table.ForeignKey(
-                        name: "FK_CoachSoccer_Jersey_Coaches_coachesId",
-                        column: x => x.coachesId,
-                        principalTable: "Coaches",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                      name: "FK_Soccer_Jerseys_Leagues_LeagueId",
+                      column: x => x.LeagueId,
+                      principalTable: "Leagues",
+                      principalColumn: "Id",
+                      onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_CoachSoccer_Jersey_Soccer_Jerseys_CoachId",
+                        name: "FK_Soccer_Jerseys_Coaches_CoachId",
                         column: x => x.CoachId,
-                        principalTable: "Soccer_Jerseys",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "LeagueSoccer_Jersey",
-                columns: table => new
-                {
-                    LeagueId = table.Column<int>(type: "int", nullable: false),
-                    leaguesId = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_LeagueSoccer_Jersey", x => new { x.LeagueId, x.leaguesId });
-                    table.ForeignKey(
-                        name: "FK_LeagueSoccer_Jersey_Leagues_leaguesId",
-                        column: x => x.leaguesId,
-                        principalTable: "Leagues",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_LeagueSoccer_Jersey_Soccer_Jerseys_LeagueId",
-                        column: x => x.LeagueId,
-                        principalTable: "Soccer_Jerseys",
+                        principalTable: "Coaches",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -149,30 +113,24 @@ namespace SoccerJerseyPass.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_CoachSoccer_Jersey_coachesId",
-                table: "CoachSoccer_Jersey",
-                column: "coachesId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_LeagueSoccer_Jersey_leaguesId",
-                table: "LeagueSoccer_Jersey",
-                column: "leaguesId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Player_Jerseys_Soccer_JerseyId",
                 table: "Player_Jerseys",
                 column: "Soccer_JerseyId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Soccer_Jerseys_leagueId",
+                table: "Soccer_Jerseys",
+                column: "leagueId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Soccer_Jerseys_CoachId",
+                table: "Player_Jerseys",
+                column: "CoachId");
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropTable(
-                name: "CoachSoccer_Jersey");
-
-            migrationBuilder.DropTable(
-                name: "LeagueSoccer_Jersey");
-
             migrationBuilder.DropTable(
                 name: "Player_Jerseys");
 

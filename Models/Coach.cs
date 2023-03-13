@@ -17,6 +17,6 @@ namespace SoccerJerseyPass.Models
 
         // Relationships
 
-        public List <Soccer_Jersey> soccer_Jerseys { get; set; }
+        public List <Soccer_Jersey> Soccer_Jerseys { get; set; }
     }
 }

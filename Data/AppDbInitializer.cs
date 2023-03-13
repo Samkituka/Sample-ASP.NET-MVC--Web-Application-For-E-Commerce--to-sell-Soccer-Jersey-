@@ -246,7 +246,7 @@ namespace SoccerJerseyPass.Data
                             ImageURL = "https://cf.projerseyshop.cc/upload/ttmall/img/20230129/7dec562dce4b7a2636634de6329066de.png=z-0,0_f-webp",
                             Size = "Medium",
                             Sleeve = "Short",
-                            LeagueId = 1,
+                            LeagueId = 1    ,
                             CoachId= 1,
                             Club = Club.PSG
                         },
