@@ -17,7 +17,7 @@ namespace SoccerJerseyPass.Controllers
         {
             var data = _context.Players.ToList();
 
-            return View();
+            return View(data);
         }
     }
 }

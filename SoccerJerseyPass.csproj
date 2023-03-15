@@ -15,4 +15,10 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Views\Coaches\" />
+    <Folder Include="Views\Leagues\" />
+    <Folder Include="Views\Soccer_Jerseys\" />
+  </ItemGroup>
+
 </Project>

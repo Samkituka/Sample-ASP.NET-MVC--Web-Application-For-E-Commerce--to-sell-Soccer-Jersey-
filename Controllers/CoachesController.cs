@@ -4,18 +4,18 @@ using SoccerJerseyPass.Data;
 
 namespace SoccerJerseyPass.Controllers
 {
-    public class Soccer_JerseysController : Controller
+    public class CoachesController : Controller
     {
         private readonly AppDbContext _context;
 
-        public Soccer_JerseysController(AppDbContext context)
+        public CoachesController(AppDbContext context)
         {
-            _context = context; 
+            _context = context;
         }
 
         public async Task<IActionResult> Index()
         {
-            var allSoccer_Jerseys = await _context.Soccer_Jerseys.ToListAsync();
+            var allCoaches = await _context.Coaches.ToListAsync();
             return View();
         }
     }

@@ -168,8 +168,8 @@ namespace SoccerJerseyPass.Data
 
                         new Player()
                         {
-                            ProfilePictureURL = "https://static.wikia.nocookie.net/liverpoolfc/images/f/f6/MSalah2022.jpeg/revision/latest?cb=20220921065825",
-                            FullName = "mohamed salah",
+                            ProfilePictureURL = "https://phantom-marca.unidadeditorial.es/20aa6ea47e1cf5a870c13f1e7c37ed1b/resize/1320/f/jpg/assets/multimedia/imagenes/2021/10/18/16345576578909.jpg",
+                            FullName = "Mohamed salah",
                             Bio = "Mohamed Salah Hamed Mahrous Ghaly, also known as Mo Salah, is an Egyptian professional " +
                             "footballer who plays as a forward for Premier League club Liverpool and captains the Egypt national " +
                             "team."
