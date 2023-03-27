@@ -16,7 +16,7 @@ namespace SoccerJerseyPass.Controllers
         public async Task<IActionResult> Index()
         {
             var allCoaches = await _context.Coaches.ToListAsync();
-            return View();
+            return View(allCoaches);
         }
     }
 }

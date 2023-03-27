@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using SoccerJerseyPass.Data;
+using SoccerJerseyPass.Data.Services;
 
 namespace SoccerJerseyPass
 {
@@ -12,6 +13,10 @@ namespace SoccerJerseyPass
             // Add services to the container.
             builder.Services.AddControllersWithViews();
             builder.Services.AddMvc();
+
+            // Add services configuration
+
+            builder.Services.AddScoped<IPlayersService, PlayersService>();
 
             // Add DbContext Configuration
 
@@ -38,13 +43,18 @@ namespace SoccerJerseyPass
             app.UseStaticFiles();
 
             app.UseRouting();
+         
 
             app.UseAuthorization();
 
-            app.MapControllerRoute(
-                name: "default",
-                pattern: "{controller=Home}/{action=Index}/{id?}");
 
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapRazorPages();
+                endpoints.MapControllerRoute(name: "default", pattern: "{controller=Soccer-Jerseys}/{action=Index}/{id?}");
+            });
+
+           
             // Seed database 
 
             AppDbInitializer.seed(app);

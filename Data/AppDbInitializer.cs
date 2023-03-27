@@ -1,5 +1,6 @@
 ﻿using SoccerJerseyPass.Data.Enums;
 using SoccerJerseyPass.Models;
+using static System.Net.WebRequestMethods;
 
 namespace SoccerJerseyPass.Data
 {
@@ -23,7 +24,7 @@ namespace SoccerJerseyPass.Data
                         new League ()
                         {
                             Name = "Ligue 1",
-                            Logo = "https://en.wikipedia.org/wiki/Ligue_1#/media/File:Ligue1_Uber_Eats_logo.png",
+                            Logo = "https://www.fifplay.com/img/public/ligue-1-logo.jpg",
                             Description = "This is the French professional league for men's association football clubs. " +
                             "At the top of the French football league system, it is the country's primary football competition."
                         },
@@ -31,7 +32,7 @@ namespace SoccerJerseyPass.Data
                         new League ()
                         {
                             Name = "Premier League",
-                            Logo = "https://upload.wikimedia.org/wikipedia/en/thumb/f/f2/Premier_League_Logo.svg/1200px-Premier_League_Logo.svg.png",
+                            Logo = "https://cdn.thedesigninspiration.com/wp-content/uploads/sites/3/2021/04/Premier-League-logo.png",
                             Description = "This is the English professional football (soccer) league established in 1992. " +
                             "The league, which comprises 20 clubs, superseded the first division of the English Football League (EFL)" +
                             " as the top level of football in England."
@@ -40,7 +41,7 @@ namespace SoccerJerseyPass.Data
                         new League ()
                         {
                             Name = "La Liga",
-                            Logo = "https://a2.espncdn.com/combiner/i?img=%2Fi%2Fleaguelogos%2Fsoccer%2F500%2F15.png",
+                            Logo = "https://cdn.dribbble.com/users/422205/screenshots/4025424/la_liga_logo_redesign.png",
                             Description = "Also called (Campeonato Nacional de Liga de Primera División) is" +
                             " the name of the Spanish football league" +
                             " and has existed since 1929."
@@ -49,7 +50,7 @@ namespace SoccerJerseyPass.Data
                         new League ()
                         {
                             Name = "the Bundesliga",
-                            Logo = "https://upload.wikimedia.org/wikipedia/en/thumb/d/df/Bundesliga_logo_%282017%29.svg/800px-Bundesliga_logo_%282017%29.svg.png",
+                            Logo = "https://e7.pngegg.com/pngimages/489/415/png-clipart-bundesliga-logo-bundesliga-logo-icons-logos-emojis-football.png",
                             Description = "This is the Germany's premier football league is called the Bundesliga. " +
                             "The literal translation of the word Bundesliga is federal league. The league consists of 18 teams" +
                             " and they play in the home and away match format. The league operates on a system of promotion" +
@@ -142,16 +143,16 @@ namespace SoccerJerseyPass.Data
 
                         new Player()
                         {
-                            ProfilePictureURL = "https://www.billboard.com/wp-content/uploads/2023/03/Lionel-Messi-2023-billboard-1548.jpg?w=942&h=623&crop=1",
+                            ProfilePictureURL= "https://icdn.psgtalk.com/wp-content/uploads/2021/10/lionel-messi-paris-saint-germain-v-rb-leipzig-group-a-uefa-champions-league-2021-2.jpg",
                             FullName = "Lionel Messi",
                             Bio = "Lionel Andrés Messi, also known as Leo Messi, is an Argentine professional footballer " +
                             "who plays as a forward for Ligue 1 club Paris Saint-Germain and captains the Argentina national team." +
-                            "He is considered to be one of the best soccer player of all time ."
+                            "He is considered to be one of the best soccer player of all time."
                         },
 
                         new Player()
                         {
-                            ProfilePictureURL = "https://www.fcbarcelona.com/photo-resources/2022/11/02/9b93a4c7-2ec5-4409-b08e-e551b1c983df/mini_09-ROBERT_LEWANDOWSKI.png?width=670&height=790",
+                            ProfilePictureURL= "https://www.fcbarcelona.com/photo-resources/2022/11/02/9b93a4c7-2ec5-4409-b08e-e551b1c983df/mini_09-ROBERT_LEWANDOWSKI.png?width=670&height=790",
                             FullName = "Robert Lewandowski",
                             Bio = "Robert Lewandowski is a Polish professional footballer who plays as a striker for La Liga club " +
                             "Barcelona and captains the Poland national team"
@@ -159,7 +160,7 @@ namespace SoccerJerseyPass.Data
 
                         new Player()
                         {
-                            ProfilePictureURL = "https://media.gq.com/photos/6303afa3a4a1f5315ac58561/master/pass/mane.jpg",
+                            ProfilePictureURL= "https://sportnewsafrica.com/wp-content/uploads/2023/03/71093864-49535635.jpg",
                             FullName = "Sadio Mané",
                             Bio = "Sadio Mané is a Senegalese professional footballer who plays as a forward for Bundesliga club" +
                             " Bayern Munich and the Senegal national team. Widely regarded as one of the best players in the world " +
@@ -178,7 +179,7 @@ namespace SoccerJerseyPass.Data
 
                         new Player()
                         {
-                             ProfilePictureURL = "https://i.hurimg.com/i/hdn/75/0x0/62343fca4e3fe00f948338ce.jpg",
+                             ProfilePictureURL = "https://media.cnn.com/api/v1/images/stellar/prod/210423105137-01-zlatan-ibrahimovic-file.jpg?q=w_3000,h_2000,x_0,y_0,c_fill",
                              FullName = "Zlatan Ibrahimović",
                              Bio = "Zlatan Ibrahimović is a Swedish professional footballer who plays as a striker for Serie A " +
                              "club AC Milan and the Sweden national team. Ibrahimović is renowned for his acrobatic strikes and " +
@@ -243,7 +244,7 @@ namespace SoccerJerseyPass.Data
                             Name = "Messi Jersey #30 ",
                             Description = "Men's Replica MESSI #30 PSG Fourth Away Soccer Jersey Shirt 2022/23 Jordan",
                             Price = 31.99,
-                            ImageURL = "https://cf.projerseyshop.cc/upload/ttmall/img/20230129/7dec562dce4b7a2636634de6329066de.png=z-0,0_f-webp",
+                            ImageURL = "https://images.footballfanatics.com/paris-saint-germain/paris-saint-germain-x-jordan-fourth-stadium-shirt-2022-23-with-messi-30-printing_ss4_p-13371159+u-waguz5ph3cgzzq5tztrp+v-f5a0c3917bb14ecbb6988fb6e011fc3d.jpg?_hv=2&w=900",
                             Size = "Medium",
                             Sleeve = "Short",
                             LeagueId = 1    ,
@@ -254,10 +255,10 @@ namespace SoccerJerseyPass.Data
                         new Soccer_Jersey()
                         {
 
-                            Name = "Sadio Mane #10 ",
-                            Description = "Men's Replica SANÉ #10 Bayern Munich Third Away Soccer Jersey Shirt 2022/23 Adidas",
+                            Name = "Sadio Mane #17 ",
+                            Description = "Men's Replica SANÉ #17 Bayern Munich Third Away Soccer Jersey Shirt 2022/23 Adidas",
                             Price = 27.99,
-                            ImageURL = "https://cf.projerseyshop.cc/upload/ttmall/img/20230129/7dec562dce4b7a2636634de6329066de.png=z-0,0_f-webp",
+                            ImageURL = "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcS-Hu_QMIC5AjlC4H6VlMhb3-ksLsbQsbQl6ovxCraGuDB65bClmjIXV3Fs2eH7JH66C3jxww_7egxnBUwMBysZX8z6TyjdyrY8dEAnqKlTQxcKeXKrMf-M6g&usqp=CAE",
                             Size = "Medium",
                             Sleeve = "Short",
                             LeagueId = 4,
@@ -270,7 +271,7 @@ namespace SoccerJerseyPass.Data
                             Name = "Robert Lewandowski Jersey #9 ",
                             Description = "Men's Replica LEWANDOWSKI #9 Barcelona Home Soccer Jersey Shirt 2022/23 Nike",
                             Price = 33.99,
-                            ImageURL = "https://www.imagehandler.net/preview/?istyle=0000&fmt=jpg&w=600&h=600&cmp=100&c=999&img=A1077414000&iset=0100&iindex=0009&retBlank=1x1&bg=f6f6f6&l2c=FFB81C&l2lc=0OB102&l2s=2&l2f=FCBH2223&l2v=LEWANDOWSKI&l2a=1&l3c=FFB81C&l3lc=0OB302&l3s=10&l3f=FCBH2223&l3v=9&l3a=0&l4lc=0OR203&l4s=4&l4l=R20871",
+                            ImageURL = "https://images.footballfanatics.com/barcelona/mens-nike-robert-lewandowski-blue-barcelona-2022/23-home-replica-player-jersey_pi5080000_altimages_ff_5080188-8b10cc03ad56e7648c96alt1_full.jpg?_hv=2&w=900",
                             Size = "Long",
                             Sleeve = "Long",
                             LeagueId = 3,
@@ -293,7 +294,7 @@ namespace SoccerJerseyPass.Data
 
                         new Soccer_Jersey()
                         {
-                            Name = "BRAHIMOVIĆ #11 ",
+                            Name = "Ibrahimovic #11 ",
                             Description = "Men's Replica IBRAHIMOVIĆ #11 AC Milan Home Soccer Jersey Shirt 2022/23 Puma",
                             Price = 40.99,
                             ImageURL = "https://cdn1.uksoccershop.com/images/cache/re-2022-2023-ac-milan-home-shirt-ibrahimovic-11-1657017570-475x0.webp",
@@ -309,7 +310,7 @@ namespace SoccerJerseyPass.Data
                             Name = "Messi PSG #30 ",
                             Description = "LIONEL MESSI PSG 22/23 LONG SLEEVE HOME JERSEY BY NIKE",
                             Price = 31.99,
-                            ImageURL = "https://www.imagehandler.net/preview/?istyle=0000&fmt=jpg&w=600&h=600&cmp=100&c=999&img=A1080072000&iset=0108&iindex=0009&retBlank=1x1&bg=f2f2f2&l1lc=0OB102&l1s=19&l1l=R1078913",
+                            ImageURL = "https://images.footballfanatics.com/paris-saint-germain/paris-saint-germain-ls-home-stadium-shirt-2022-23-with-messi-30-printing_ss4_p-13328406+u-75o6z1qfgrhbffnqv5ut+v-ee55c8865e2f427f9583e14915de657b.jpg?_hv=2&w=900",
                             Size = "Large",
                             Sleeve = "Long",
                             LeagueId = 1,

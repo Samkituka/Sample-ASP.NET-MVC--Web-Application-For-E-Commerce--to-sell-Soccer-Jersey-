@@ -17,7 +17,7 @@ namespace SoccerJerseyPass.Controllers
         {
 
             var allLeagues = await _context.Leagues.ToListAsync();
-            return View();
+            return View(allLeagues);
         }
     }
 }
