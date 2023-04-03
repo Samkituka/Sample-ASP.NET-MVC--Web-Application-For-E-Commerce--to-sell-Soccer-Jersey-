@@ -1,0 +1,109 @@
+﻿@model NewSoccer_JerseyVM; 
+@using SoccerJerseyPass.Data.Enums;
+@using SoccerJerseyPass.Data.Base.ViewModels;
+
+<h2>Delete Soccer Jersey</h2>
+
+<p>Are you sure you want to delete this soccer jersey?</p>
+
+<div class="row">
+    <div class="col-md-8 offset-2">
+        <p>
+            <h4>Delete Player Jersey</h4>
+        </p>
+
+        <div class="row">
+            <div class="col-md-8 offset-2">
+                <form asp-action="Delete">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="Name" class="control-label"></label>
+                                <input asp-for="Name" class="form-control" />
+                                <span asp-validation-for="Name" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Size" class="control-label"></label>
+                                <input asp-for="Size" class="form-control" />
+                                <span asp-validation-for="Size" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Sleeve" class="control-label"></label>
+                                <input asp-for="Sleeve" class="form-control" />
+                                <span asp-validation-for="Sleeve" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Price" class="control-label"></label>
+                                <input asp-for="Price" type="number" class="form-control" />
+                                <span asp-validation-for="Price" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="ImageURL" class="control-label"></label>
+                                <input asp-for="ImageURL" class="form-control" />
+                                <span asp-validation-for="ImageURL" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="LeagueId" class="control-label"></label>
+                                <select asp-for="LeagueId" class="form-control" asp-items="ViewBag.Leagues"></select>
+                                <span asp-validation-for="LeagueId" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Club" class="control-label"></label>
+                                <select asp-for="Club" class="form-control" asp-items="Html.GetEnumSelectList<Club>()"></select>
+                                <span asp-validation-for="Club" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="CoachId" class="control-label"></label>
+                                <select asp-for="CoachId" class="form-control" asp-items="ViewBag.Coaches"></select>
+                                <span asp-validation-for="CoachId" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="PlayerIds" class="control-label"></label>
+                                <select asp-for="PlayerIds" class="form-control"  asp-items="ViewBag.Players" multiple></select>
+                                <span asp-validation-for="PlayerIds" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label asp-for="Description" class="control-label"></label>
+                                <textarea asp-for="Description" class="form-control"></textarea>
+                                <span asp-validation-for="Description" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 offset-4 text-center">
+                        <img width="100%" id="ImageUrlPreview" />
+                    </div>
+
+                    <div class="form-group">
+                        <input type="submit" value="Delete" class="btn btn-outline-success float-right" />
+                        <a class="btn btn-outline-secondary" asp-action="Index">Show all</a>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+@section Scripts{ 
+    <script>
+        $(document).ready(function () {
+            var output = document.getElementById("ImageUrlPreview");
+            output.src = $("#ImageURL").val();
+        });
+        $("#ImageURL").on("change", function () {
+            var output = document.getElementById("ImageUrlPreview");
+            output.src = $(this).val();
+        })
+    </script>
+}
+
+

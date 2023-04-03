@@ -5,6 +5,7 @@ using SoccerJerseyPass.Data;
 using SoccerJerseyPass.Data.Base.ViewModels;
 using SoccerJerseyPass.Data.Services;
 using SoccerJerseyPass.Models;
+using System.Net.Sockets;
 
 namespace SoccerJerseyPass.Controllers
 {
@@ -124,7 +125,64 @@ namespace SoccerJerseyPass.Controllers
             return View("Index", jersey);
         }
 
- 
+        public async Task<IActionResult> Delete(int id)
+        {
+            var jerseyDetails = await _service.GetSoccer_JerseyByIdAsync(id);
+            if (jerseyDetails == null) return View("NotFound");
+
+            var response = new NewSoccer_JerseyVM()
+            {
+                Id = jerseyDetails.Id,
+                Name = jerseyDetails.Name,
+                Description = jerseyDetails.Description,
+                Price = jerseyDetails.Price,
+                Size = jerseyDetails.Size,
+                Sleeve = jerseyDetails.Sleeve,
+                ImageURL = jerseyDetails.ImageURL,
+                Club = jerseyDetails.Club,
+                LeagueId = jerseyDetails.LeagueId,
+                CoachId = jerseyDetails.CoachId,
+                PlayerIds = jerseyDetails.Player_Jerseys.Select(n => n.PlayerId).ToList(),
+            };
+
+            var jerseyDropdownsData = await _service.GetNewSoccer_JerseyDropdownsValues();
+            ViewBag.Leagues = new SelectList(jerseyDropdownsData.Leagues, "Id", "Name");
+            ViewBag.Coaches = new SelectList(jerseyDropdownsData.Coaches, "Id", "FullName");
+            ViewBag.Players = new SelectList(jerseyDropdownsData.Players, "Id", "FullName");
+
+            return View(response);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        public async Task<IActionResult> DeleteConfirm(int id)
+        {
+            var jerseyDetails = await _service.GetSoccer_JerseyByIdAsync(id);
+            if (jerseyDetails == null) return View("NotFound");
+
+            var response = new NewSoccer_JerseyVM()
+            {
+                Id = jerseyDetails.Id,
+                Name = jerseyDetails.Name,
+                Description = jerseyDetails.Description,
+                Price = jerseyDetails.Price,
+                Size = jerseyDetails.Size,
+                Sleeve = jerseyDetails.Sleeve,
+                ImageURL = jerseyDetails.ImageURL,
+                Club = jerseyDetails.Club,
+                LeagueId = jerseyDetails.LeagueId,
+                CoachId = jerseyDetails.CoachId,
+                PlayerIds = jerseyDetails.Player_Jerseys.Select(n => n.PlayerId).ToList(),
+            };
+
+            var jerseyDropdownsData = await _service.GetNewSoccer_JerseyDropdownsValues();
+            ViewBag.Leagues = new SelectList(jerseyDropdownsData.Leagues, "Id", "Name");
+            ViewBag.Coaches = new SelectList(jerseyDropdownsData.Coaches, "Id", "FullName");
+            ViewBag.Players = new SelectList(jerseyDropdownsData.Players, "Id", "FullName");
+
+            await _service.DeleteSoccer_JerseyAsync(id);
+            return RedirectToAction(nameof(Index));
+
+        }   
     }
 }
 

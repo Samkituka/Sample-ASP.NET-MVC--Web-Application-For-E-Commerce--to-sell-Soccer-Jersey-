@@ -13,6 +13,7 @@ namespace SoccerJerseyPass.Data.Services
         Task<NewSoccer_JerseyDropdownsVM> GetNewSoccer_JerseyDropdownsValues();
         Task AddNewSoccer_JerseyAsync(NewSoccer_JerseyVM data);
         Task UpdateSoccer_JerseyAsync(NewSoccer_JerseyVM data);
+        Task DeleteSoccer_JerseyAsync(int id);
 
     }
 }

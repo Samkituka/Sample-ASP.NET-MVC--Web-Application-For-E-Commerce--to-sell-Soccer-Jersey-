@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.Identity.Client;
 using SoccerJerseyPass.Data.Base;
 using SoccerJerseyPass.Data.Base.ViewModels;
@@ -42,6 +43,21 @@ namespace SoccerJerseyPass.Data.Services
                 };
                 await _context.Player_Jerseys.AddAsync(newPlayer_Jersey);
             }
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task DeleteSoccer_JerseyAsync(int id)
+        {
+            var soccer_jerseyDetails = await _context.Soccer_Jerseys
+              .Include(l => l.League)
+              .Include(c => c.Coach)
+              .Include(pj => pj.Player_Jerseys).ThenInclude(a => a.Player)
+              .FirstOrDefaultAsync(n => n.Id == id);
+
+            var entity = await _context.Set<Soccer_Jersey>().FirstOrDefaultAsync(n => n.Id == id);
+            EntityEntry entityEntry = _context.Entry<Soccer_Jersey>(entity);
+            entityEntry.State = EntityState.Deleted;
+
             await _context.SaveChangesAsync();
         }
 
