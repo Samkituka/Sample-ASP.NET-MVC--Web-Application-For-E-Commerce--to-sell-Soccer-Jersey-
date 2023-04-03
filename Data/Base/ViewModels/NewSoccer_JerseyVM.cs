@@ -1,4 +1,5 @@
 ﻿using SoccerJerseyPass.Data.Enums;
+using SoccerJerseyPass.Models;
 using System.ComponentModel.DataAnnotations;
 
 namespace SoccerJerseyPass.Data.Base.ViewModels
@@ -17,6 +18,7 @@ namespace SoccerJerseyPass.Data.Base.ViewModels
 
         [Display(Name = "Price in $")]
         [Required(ErrorMessage = "Price is required")]
+        [Range(0, int.MaxValue, ErrorMessage = "Please enter a positive value.")]
         public double Price { get; set; }
 
         [Display(Name = "Jersey poster URL")]

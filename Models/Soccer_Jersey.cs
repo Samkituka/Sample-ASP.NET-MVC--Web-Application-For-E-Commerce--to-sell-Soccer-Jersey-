@@ -15,6 +15,7 @@ namespace SoccerJerseyPass.Models
 
         public string Name { get; set; }
         public string Description { get; set; }
+        [Range(0, int.MaxValue, ErrorMessage = "Please enter a positive value.")]
         public double Price { get; set; }
         public string ImageURL { get; set; }
         public string Size { get; set; }
