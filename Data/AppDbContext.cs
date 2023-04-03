@@ -21,10 +21,10 @@ namespace SoccerJerseyPass.Data
                 pj.Soccer_JerseyId
             });
 
-            modelBuilder.Entity<Player_Jersey>().HasOne(s => s.soccerjersey).WithMany(pj => pj.PlayerJersey).HasForeignKey(
+            modelBuilder.Entity<Player_Jersey>().HasOne(s => s.Soccer_Jersey).WithMany(pj => pj.Player_Jerseys).HasForeignKey(
                 s => s.Soccer_JerseyId);
 
-            modelBuilder.Entity<Player_Jersey>().HasOne(s => s.player).WithMany(pj => pj.player_Jersey).HasForeignKey(
+            modelBuilder.Entity<Player_Jersey>().HasOne(s => s.Player).WithMany(pj => pj.Player_Jerseys).HasForeignKey(
                 s => s.PlayerId);
 
             base.OnModelCreating (modelBuilder);

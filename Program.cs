@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using SoccerJerseyPass.Data;
 using SoccerJerseyPass.Data.Services;
+using SoccerJerseyPass.Models;
 
 namespace SoccerJerseyPass
 {
@@ -17,6 +18,9 @@ namespace SoccerJerseyPass
             // Add services configuration
 
             builder.Services.AddScoped<IPlayersService, PlayersService>();
+            builder.Services.AddScoped<ICoachesService, CoachesService>();
+            builder.Services.AddScoped<ILeaguesService, LeaguesService>();
+            builder.Services.AddScoped<ISoccerJerseysService, SoccerJerseysService>();
 
             // Add DbContext Configuration
 

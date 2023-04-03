@@ -6,8 +6,8 @@
 
         public int PlayerId { get; set; }
 
-        public Soccer_Jersey soccerjersey { get; set; }
+        public Soccer_Jersey Soccer_Jersey { get; set; }
 
-        public Player player { get; set; }
+        public Player Player { get; set; }
     }
 }

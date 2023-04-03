@@ -1,0 +1,85 @@
+﻿@model Soccer_Jersey
+
+@{
+    ViewData["Title"] = "Jersey Details";
+}
+
+<div class="row">
+    <div class="col-md-8 offset-2">
+        <div class="card mb-12">
+            <div class="row g-0">
+                <div class="col-md-12">
+                    <div class="card-header text-white bg-info">
+                        <p class="card-text">
+                            <h5 class="card-title">
+                                @Model.Name
+                            </h5>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <img src="@Model.ImageURL" width="100%" alt="@Model.Name">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <p class="card-text">@Model.Description</p>
+                        <p class="card-text">
+                            <b>League: </b>
+                            <a asp-controller="Leagues" asp-action="Details" asp-route-id="@Model.LeagueId">
+                                @Model.League.Name
+                            </a>
+                        </p>
+                        <p class="card-text">
+                            <b>Coach: </b>
+                            <a asp-controller="Coaches" asp-action="Details" asp-route-id="@Model.CoachId">
+                                @Model.Coach.FullName
+                            </a>
+                        </p>
+                        <p class="card-text"><b>Club: </b>@Model.Club</p>
+                        <p class="card-text"><b>Size: </b>@Model.Size.ToString()</p>
+                        <p class="card-text"><b>Sleeve: </b>@Model.Sleeve.ToString()</p>
+                        <p class="card-text ">
+                            <b>Status: </b>
+                            @if (2 >= 1)
+                            {
+                                <span class="badge bg-success text-white">AVAILABLE</span>
+                            }
+                            @* else if ()
+                            {
+                            <span class="badge bg-danger text-white">EXPIRED</span>
+                            }*@
+                            @*   else
+                            {
+                            <span class="badge bg-primary text-white">UPCOMING</span>
+                            }*@
+                        </p>
+                        <p class="card-text">
+                            <b>Players: </b>
+                            <hr />
+                            <div class="row">
+                                @foreach (var player in Model.Player_Jerseys)
+                                {
+                                    <div class="column text-center">
+                                        <img class="border-info rounded-circle" src="@player.Player.ProfilePictureURL" style="max-width: 150px" />
+                                        <br />
+                                        <a asp-controller="Players" asp-action="Details" asp-route-id="@player.PlayerId">@player.Player.FullName</a>
+                                    </div>
+                                }
+                            </div>
+                        </p>
+
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="card-footer">
+                        <p class="card-text">
+                            <a class="btn btn-outline-primary float-right" asp-action="Index">
+                                Back to List
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

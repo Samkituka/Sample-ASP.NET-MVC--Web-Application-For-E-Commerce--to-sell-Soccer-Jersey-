@@ -1,9 +1,10 @@
-﻿using System;
+﻿using SoccerJerseyPass.Data.Base;
+using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace SoccerJerseyPass.Models
 {
-    public class Player
+    public class Player:IEntityBase
     {
         [Key]
         public int Id { get; set; }
@@ -23,6 +24,6 @@ namespace SoccerJerseyPass.Models
 
         // Relationships 
 
-        public List <Player_Jersey > player_Jersey { get; set; }
+        public List <Player_Jersey > Player_Jerseys { get; set; }
     }
 }
