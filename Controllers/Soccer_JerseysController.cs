@@ -115,9 +115,9 @@ namespace SoccerJerseyPass.Controllers
         {
             var jersey = await _service.GetAllAsync(n => n.League);
 
-            if (!string.IsNullOrEmpty(searchString))
+            if (!String.IsNullOrWhiteSpace(searchString))
             {
-                var filteredResultNew = jersey.Where(n => string.Equals(n.Name, searchString, StringComparison.CurrentCultureIgnoreCase) || string.Equals(n.Description, searchString, StringComparison.CurrentCultureIgnoreCase)).ToList();
+                var filteredResultNew = jersey.Where(n => n.Name.Contains(searchString) || n.Description.Contains(searchString)).ToList();
 
                 return View("Index", filteredResultNew);
             }
